@@ -1,0 +1,30 @@
+{
+  "name": "Java Development Container",
+  "dockerFile": "Dockerfile",
+  "context": "..",
+  "workspaceFolder": "/code",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/code,type=bind,consistency=cached",
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+    "source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
+  ],
+  "postCreateCommand": "java -version && javac -version",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vscjava.vscode-maven",
+        "redhat.java",
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "ms-ceintl.vscode-language-pack-ja"
+      ],
+      "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash",
+        "editor.formatOnSave": true,
+        "java.configuration.updateBuildConfiguration": "interactive",
+        "java.compile.nullAnalysis.mode": "automatic"
+      }
+    }
+  }
+}
